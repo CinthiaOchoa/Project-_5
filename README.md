@@ -38,7 +38,7 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented user stories:
 
-[Video Walkthrough](https://imgur.com/a/6pBT3dJ.gif)
+[Video Walkthrough](https://imgur.com/a/7JDmmAt.gif)
 
 <!-- Replace the above URL with your actual walkthrough GIF -->
 
