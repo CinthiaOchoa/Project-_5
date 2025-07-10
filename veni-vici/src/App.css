@@ -122,15 +122,13 @@
 }
 
 /* Overall app styles */
-/* Make the entire page pink — permanently, even when scrolling */
-/* Make sure the entire page stays pink, even beyond scroll range */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
   background-color: #fff0f7;
-  overscroll-behavior: none; /* prevent rubber-banding on mobile */
+  overscroll-behavior: none;
 }
 
 #root {
