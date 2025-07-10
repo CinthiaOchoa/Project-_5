@@ -1,0 +1,288 @@
+/* Container layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Left panel - History */
+.history-panel {
+  flex: 1;
+  max-width: 180px;
+  background: #ffe6f0;
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-y: auto;
+  max-height: 500px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.4); 
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  background: #fff0f7; 
+  padding: 6px 8px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  cursor: default;
+}
+.history-item:hover {
+  background: #ffccdf; 
+}
+
+/* Center panel - Current Cat */
+.cat-panel {
+  flex: 2;
+  text-align: center;
+}
+
+.cat-card img {
+  max-width: 100%;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 15px rgba(255, 192, 203, 0.4); 
+}
+
+/* Ban tags overlay on cat image */
+.ban-tags-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: 90%;
+  z-index: 10;
+}
+
+.ban-tag {
+  background-color: #ff66b2; 
+  color: white;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.ban-tag:hover {
+  background-color: #ff3399;
+  transform: scale(1.05);
+}
+
+/* Text below cat */
+.cat-card h3 {
+  cursor: pointer;
+  color: #d6336c; 
+  user-select: none;
+  margin-bottom: 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.cat-card h3:hover {
+  color: #a0254a; 
+}
+
+.cat-card p {
+  color: #7a4e68;
+  font-style: italic;
+  margin: 0.2rem 0;
+}
+
+/* Right panel - Ban List */
+.ban-panel {
+  flex: 1;
+  max-width: 180px;
+  background: #fff0f7; 
+  padding: 1rem;
+  border-radius: 12px;
+  max-height: 500px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.4);
+}
+
+.ban-panel p {
+  cursor: pointer;
+  font-weight: 700;
+  color: #e60073; 
+  margin-bottom: 0.5rem;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.ban-panel p:hover {
+  color: #b30059; 
+}
+
+/* Overall app styles */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #fff0f7; 
+}
+
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff0f7;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #5a2a4d;
+  box-sizing: border-box;
+}
+
+/* Container fills width inside App */
+.container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Full screen overlay with blur and dim */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(4px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* Popup box */
+.popup {
+  background: #ffe6f0; 
+  border: 3px solid #ff69b4; 
+  border-radius: 25px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 15px rgba(255, 105, 180, 0.6);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #8b004b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 320px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  animation: pawBounce 0.7s ease forwards;
+  position: relative;
+}
+
+/* Little paw prints floating around */
+.popup::before,
+.popup::after {
+  content: "🐾";
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  animation: pawFloat 3s infinite ease-in-out;
+}
+
+.popup::before {
+  top: 5px;
+  left: 10px;
+  animation-delay: 0s;
+}
+
+.popup::after {
+  bottom: 5px;
+  right: 10px;
+  animation-delay: 1.5s;
+}
+
+/* Bounce animation */
+@keyframes pawBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Paw floating animation */
+@keyframes pawFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Close button */
+.close-btn {
+  background: #ff69b4;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 6px rgba(255, 105, 180, 0.5);
+  user-select: none;
+  margin-left: 1rem;
+  box-shadow: 0 0 10px 2px #ff69b4;
+}
+
+.close-btn:hover {
+  background-color: #d43d84;
+  box-shadow: 0 0 15px 3px #d43d84;
+}
+
+.characteristics-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.char-box {
+  background-color: #ffb6c1;
+  border: 2px solid #ff69b4;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-weight: 600;
+  color: #61045f;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 2px 6px rgba(255, 105, 180, 0.5);
+  transition: background-color 0.2s ease;
+}
+
+.char-box:hover {
+  background-color: #ff69b4;
+  color: white;
+}
