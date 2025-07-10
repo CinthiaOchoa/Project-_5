@@ -122,22 +122,31 @@
 }
 
 /* Overall app styles */
-html, body, #root {
-  height: 100%;
+/* Make the entire page pink — permanently, even when scrolling */
+/* Make sure the entire page stays pink, even beyond scroll range */
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background: #fff0f7; 
+  min-height: 100vh;
+  background-color: #fff0f7;
+  overscroll-behavior: none; /* prevent rubber-banding on mobile */
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #fff0f7;
+  display: flex;
+  flex-direction: column;
 }
 
 .App {
+  flex-grow: 1;
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
   padding: 1.5rem;
-  min-height: 100vh; 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   background: #fff0f7;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
@@ -145,6 +154,8 @@ html, body, #root {
   color: #5a2a4d;
   box-sizing: border-box;
 }
+
+
 
 /* Container fills width inside App */
 .container {
