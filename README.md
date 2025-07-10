@@ -38,11 +38,11 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/a/6pBT3dJ.gif' title='Video Walkthrough' alt='Video Walkthrough' />
+[Video Walkthrough]((https://imgur.com/a/6pBT3dJ.gif))
 
 <!-- Replace the above URL with your actual walkthrough GIF -->
 
-GIF created with [Kap](https://getkap.co/).
+GIF created with [imbur]((https://imgur.com)).
 
 ## Notes
 
